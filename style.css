@@ -32,6 +32,7 @@
     font-family: sansitaFont;
     src: url(./font/Sansita/Sansita-Regular.ttf);
 }
+
 *{
     padding: 0;
     margin: 0;
@@ -39,9 +40,16 @@
 }
 
 body{
-    background-color: #ffe5ec;
+    background-color: #ffe5ec ;
+    position: relative;
 }
 
+.img-background{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    object-fit: cover;
+}
 /* Header */
 
 .header-container{
@@ -53,7 +61,7 @@ body{
 
 .header-iconText{
     font-family: tarotFont;
-    font-size: 40px;
+    font-size: 50px;
     cursor: pointer;
 }
 
@@ -62,7 +70,7 @@ body{
     width: 40%;
     display: flex;
     justify-content: space-around;
-    margin-top: 15px;
+    margin-top: 30px;
 }
 
 .header-menuList li{
@@ -87,7 +95,7 @@ body{
     border: none;
     background-color: #FFA0DC;
     font-family: notoFont;
-    margin-top: 10px;
+    margin-top: 30px;
     cursor: pointer;
 }
 
@@ -101,6 +109,7 @@ body{
     display: flex;
     padding: 30px 70px;
     justify-content: space-between;
+    
 }
 
 .welcome-col{
@@ -130,10 +139,19 @@ body{
 
 .welcome-col-1{
     width: 55%;
+    position: relative;
+    z-index: 2;
 }
 
-.welcome-col-1 img{
+.welcome-col-1 img:first-child{
     width: 100%;
+}
+
+.img-center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Product */
@@ -170,7 +188,6 @@ body{
 }
 
 .product-item{
-    
     width: 350px;
     height: 560px;
     background-color: white;
@@ -223,10 +240,6 @@ body{
     top: 150px;
     right: 72px; 
 }
-
-.services img{
-}
-
 .services-container{
     width: 100%;
     display: flex;
@@ -237,12 +250,24 @@ body{
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    border: 1px solid #acacac;
     font-family: mavenFont;
     text-transform: uppercase;
     color: #ff9fde;
     font-size: 27px;
+    border: 1px solid #ffe6ec;
     cursor: pointer;
+    background-color: #ffe6ec;
+    box-shadow: 0 0 10px 10px #ffe6ec;
+}
+
+.background-button{
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .services-text{
@@ -324,10 +349,6 @@ body{
 
 .contact-social ul li a:hover{
     opacity: 0.8;
-}
-
-.contact-address{
-
 }
 
 .address-text{

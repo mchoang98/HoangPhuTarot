@@ -1,0 +1,18 @@
+body{
+    background-color: black;
+}
+/*Header*/
+.header-menuList li a{
+    color: #ffffff;
+}
+
+/*Services*/
+.services-name{
+    border: 1px solid black;
+    background-color: black;
+    box-shadow: 0 0 10px 10px black;
+}
+
+.background-button{
+    background-color: #ffffff;
+}
