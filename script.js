@@ -1,8 +1,21 @@
 // Dark mode
 const dateObj = new Date();
 var cssId = "dark-mode";
-if (!document.getElementById(cssId) && dateObj.getHours() >= 19)
-{
+var toggle = document.getElementById("toggle");
+var flag = false;
+
+toggle.addEventListener("click", changeFlag);
+
+function changeFlag(){
+    flag = !flag;
+    if (flag){
+        darkMode();
+    } else {
+        removeDarkMode();
+    }
+}
+
+function darkMode(){
     var head  = document.getElementsByTagName('head')[0];
     var link  = document.createElement('link');
     link.id   = cssId;
@@ -13,4 +26,12 @@ if (!document.getElementById(cssId) && dateObj.getHours() >= 19)
 
     var changeImg = document.getElementById("img-2");
     changeImg.src = "./Image/Image-8.png";
+}
+
+function removeDarkMode(){
+    var linkDarkMode  = document.getElementById(cssId);
+    linkDarkMode.remove();
+
+    var changeImg = document.getElementById("img-2");
+    changeImg.src = "./Image/Image-2.png";
 }
