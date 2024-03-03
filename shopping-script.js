@@ -58,11 +58,11 @@ var arrayOfDescripttion200K =
 ]
 var listBtn = document.getElementsByClassName("btn");
 var listBtn150 = document.getElementsByClassName("normalBtn150");
-console.log(listBtn.length);
 var listBtn160 = document.getElementsByClassName("normalBtn160");
 var listBtn175 = document.getElementsByClassName("normalBtn175");
 var listBtn200 = document.getElementsByClassName("normalBtn200");
 var listText= document.getElementsByClassName("choices-desc-normalCombo");
+
 Array.from(listBtn).forEach(activeBtn);
 
 function activeBtn (element, index){
@@ -71,12 +71,10 @@ function activeBtn (element, index){
             listBtn[i].classList.remove("activeBtn");
         }
         element.classList.add("activeBtn");
-            console.log(element.classList[1].slice(-3));
             switch(element.classList[1].slice(-3)){
                 case "150":
                     listText[0].innerHTML = arrayOfDescripttion150K[index];
                 case "160":
-                    console.log(index);
                     listText[1].innerHTML = arrayOfDescripttion160K[index - listBtn150.length];
                 case "175":
                     listText[2].innerHTML = arrayOfDescripttion175K[index - listBtn150.length - listBtn160.length];

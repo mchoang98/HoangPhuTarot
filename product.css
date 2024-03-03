@@ -1,0 +1,247 @@
+@font-face {
+    font-family: tarotFont;
+    src: url(./font/Sigmar_One/SigmarOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: notoFont;
+    src: url(./font/Noto_Serif_Display/NotoSerifDisplay-VariableFont_wdth\,wght.ttf);
+}
+
+@font-face {
+    font-family: notoSanFont;
+    src: url(./font/Noto_Sans/NotoSans-VariableFont_wdth\,wght.ttf);
+}
+
+@font-face {
+    font-family: libreFont;
+    src: url(./font/Libre_Franklin/LibreFranklin-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: shrikFont;
+    src: url(./font/Shrikhand/Shrikhand-Regular.ttf);
+}
+
+@font-face {
+    font-family: mavenFont;
+    src: url(./font/Maven_Pro/MavenPro-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: sansitaFont;
+    src: url(./font/Sansita/Sansita-Regular.ttf);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #ffe5ec ;
+    position: relative;
+}
+
+.img-background{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    object-fit: cover;
+}
+/* Header */
+
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 30px 70px;
+}
+
+.header-iconText{
+    font-family: tarotFont;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.header-menuList{
+    text-decoration: none;
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.header-menuList li{
+    list-style: none;
+}
+
+.header-menuList li a{
+    text-decoration: none;
+    color: #785A42;
+    font-family: notoFont;
+}
+
+.header-menuList li a:hover{
+    opacity: 0.8;
+}
+
+.button{
+    display: block;
+    width: 70px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    background-color: #FFA0DC;
+    font-family: notoFont;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.button :hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* Welcome */
+.image-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px 70px;    
+}
+
+.image-container img:first-child{
+    width: 25%;
+}
+
+/*Product*/
+.product-container{
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(256, 256, 256, 0.5);
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border-radius: 10px;
+    border: 2px solid #785A42;
+}
+
+.product-tittle{
+    margin-left: 20px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+.product-list{
+    height: fit-content;
+    padding: 5px;
+    margin: 2px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-item{
+    width: 390px;
+    height: fit-content;
+    padding: 5px;
+    border: 2px solid #FFA0DC;
+    margin: 2px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.product-img{
+    width: 30%;
+    height: 150px;
+    background-color: aquamarine;
+    border-radius: 10px;
+}
+
+.product-img img{
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-content{
+    width: 70%;
+    height: 15  0px;
+    padding: 10px;
+}
+
+.name, .description{
+    display: inline-block;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    /* text-overflow: ellipsis; */
+    -webkit-box-orient: vertical; 
+    -webkit-line-clamp: 2;
+    text-align:justify;
+}
+
+.category{
+
+} 
+
+.price{
+    list-style: none;
+    display: flex;
+    justify-content: left;
+    cursor: pointer;
+}
+
+.price li{
+    border: 1px solid #785A42;
+    border-radius: 5px;
+    padding: 2px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.btn{
+    background-color: #FFA0DC;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: fit-content;
+    padding: 10px;
+}
+
+.desc-more{
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Footer */
+
+.footer-container{
+    width: 100%;
+    height: 150px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.footer-container::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #785A42;
+    top: 0;
+    left: 0;
+}
+
+.footer-text{
+    font-family: notoFont;
+    color: #ff3cb7;
+    text-align: center;
+    padding-top: 30px;
+    font-size: 30px;
+}
