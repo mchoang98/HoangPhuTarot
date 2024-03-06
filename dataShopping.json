@@ -1,0 +1,125 @@
+
+ [
+    {
+        "id":"222",
+        "name":"Gói special",
+        "image":"",
+        "description":"Là dạng trải bài được kết hợp giữa lenormand và tarot, orcale để đưa ra thông điệp và dự đoán tương lai, khả năng đúng về tương lai cao hơn rất nhiều",
+        "choices":
+            [
+                {
+                    "name":"Gói A",
+                    "description": "Đặt câu hỏi không giới hạn vấn đề: <br> - 5 câu: 222.000đ <br> - 8 câu: 333.000đ <br> - 45 phút ( không giới hạn câu hỏi ): 368.000đ ",
+                    "price":["220.000đ","333.000đ","368.000đ"]
+                },
+                {
+                    "name":"Gói B",
+                    "description":"Dự đoán những sự kiện trong vấn đề công việc, tiền bạc, gia đình, tình cảm, học tập, sức khỏe, 4 sự kiện nổi bật nhất, vấn đề ảnh hưởng đến bạn và những sự kiện xung quanh bản thân, cuộc sống kèm lời khuyên.",
+                    "price":["222.000đ","220.000đ"]
+                }
+            ]
+    },
+    {
+        "id":"150",
+        "name":"Normal combo - Gói 150K",
+        "image":"./Image/image-10.png",
+        "description":"",
+        "choices":
+            [
+                {
+                    "name":"Người yêu cũ",
+                    "description": "Người yêu cũ",
+                    "price":[]
+                },
+                {
+                    "name":"Người yêu tương lai",
+                    "description":"Người yêu tương lai",
+                    "price":[]
+                },
+                {
+                    "name":"Dự định kinh doanh",
+                    "description": "Dự định kinh doanh",
+                    "price":[]
+                },
+                {
+                    "name":"Đang độc thân",
+                    "description":"Đang độc thân",
+                    "price":[]
+                },
+                {
+                    "name":"Mối quan hệ bạn bè",
+                    "description": "Mối quan hệ bạn bè",
+                    "price":[]
+                },
+                {
+                    "name":"Hôn nhân gia đình",
+                    "description":"Hôn nhân gia đình",
+                    "price":[]
+                },
+                {
+                    "name":"Tình hình học tập",
+                    "description": "Tình hình học tập",
+                    "price":[]
+                },
+                {
+                    "name":"Đang yêu xa",
+                    "description":"Đang yêu xa",
+                    "price":[]
+                },
+                {
+                    "name":"Công việc hiện tại",
+                    "description": "Công việc hiện tại",
+                    "price":[]
+                },
+                {
+                    "name":"Tài chính tiền bạc",
+                    "description":"Tài chính tiền bạc",
+                    "price":[]
+                }
+            ]
+    },
+    {
+        "id":"160",
+        "name":"Gói 160K",
+        "image":"./Image/image-10.png",
+        "description":"",
+        "choices":
+            [
+                {
+                    "name":"Người yêu hiện tại",
+                    "description": "Người yêu hiện tại",
+                    "price":[]
+                },
+                {
+                    "name":"Mối quan hệ mập mờ cũ",
+                    "description":"Mỗi quan hệ mập mờ cũ",
+                    "price":[]
+                },
+                {
+                    "name":"Mối quan hệ mập mờ",
+                    "description": "Mối quan hệ mập mờ",
+                    "price":[]
+                }
+            ]
+    },
+    {
+        "id":"175",
+        "name":"Gói 175K",
+        "image":"./Image/image-10.png",
+        "description":"",
+        "choices":
+            [
+                {
+                    "name":"Đang có crush",
+                    "description": "Đang có crush",
+                    "price":[]
+                },
+                {
+                    "name":"Mối quan hệ bạn bè",
+                    "description":"Mỗi quan hệ bạn bè",
+                    "price":[]
+                }
+            ]
+    }
+ ]   
+

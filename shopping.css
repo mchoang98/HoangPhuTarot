@@ -11,6 +11,11 @@
 }
 
 /*All css*/
+.shopping-container{
+    width: 100%;
+    height: fit-content;
+}
+
 .combo{
     margin: 30px 70px;
     padding: 10px 20px;
@@ -166,4 +171,8 @@
 
 .activeBtn{
     opacity: 0.8;
+}
+
+.hidden{
+    display: none;
 }

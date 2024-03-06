@@ -1,85 +1,162 @@
+import dataShopping from "./dataShopping.json" assert {type: "json"};
+console.log("Hello")
 // Combo special
-var aChoice = document.getElementById("a-choice");
-var bChoice = document.getElementById("b-choice");
+// var aChoice = document.getElementById("a-choice");
+// var bChoice = document.getElementById("b-choice");
 
-var costList = document.getElementsByClassName("cost-style");
+// var costList = document.getElementsByClassName("cost-style");
 
-aChoice.addEventListener("click", function(){
-    document.getElementsByClassName("a-choice")[0].style.visibility="visible";
-    document.getElementsByClassName("b-choice")[0].style.visibility="hidden";
+// aChoice.addEventListener("click", function () {
+//     document.getElementsByClassName("a-choice")[0].style.visibility = "visible";
+//     document.getElementsByClassName("b-choice")[0].style.visibility = "hidden";
 
-});
+// });
 
-bChoice.addEventListener("click", function(){
-    document.getElementsByClassName("a-choice")[0].style.visibility="hidden";
-    document.getElementsByClassName("b-choice")[0].style.visibility="visible";
+// bChoice.addEventListener("click", function () {
+//     document.getElementsByClassName("a-choice")[0].style.visibility = "hidden";
+//     document.getElementsByClassName("b-choice")[0].style.visibility = "visible";
 
-});
+// });
 
-Array.from(costList).forEach((element,index) => {
-    element.addEventListener("click", function(){
-        for(let i = 0; i < costList.length; i++){
-            costList[i].classList.remove("active");
-        }
-        element.classList.add("active");
-    })
-});
+// Array.from(costList).forEach((element, index) => {
+//     element.addEventListener("click", function () {
+//         for (let i = 0; i < costList.length; i++) {
+//             costList[i].classList.remove("active");
+//         }
+//         element.classList.add("active");
+//     })
+// });
 
-// Other combo
 
-var arrayOfDescripttion150K = 
-[
-    "Người yêu cũ",
-    "Người yêu tương lai",
-    "Dự định kinh doanh",
-    "Đang độc thân",
-    "Mỗi quan hệ bạn bè",
-    "Hôn nhân gia đình",
-    "Tình hình học tập",
-    "Đang yêu xa",
-    "Công việc hiện tại",
-    "Tài chính tiền bạc"
-]
 
-var arrayOfDescripttion160K = 
-[
-    "Người yêu hiện tại",
-    "Mối quan hệ mập mờ cũ",
-    "Mối quan hệ mập mờ",
-]
-var arrayOfDescripttion175K = 
-[
-    "Đang có crush",
-    "Mối quan hệ bạn bè",
-]
-var arrayOfDescripttion200K = 
-[
-    "Người yêu cũ Special",
-]
-var listBtn = document.getElementsByClassName("btn");
-var listBtn150 = document.getElementsByClassName("normalBtn150");
-var listBtn160 = document.getElementsByClassName("normalBtn160");
-var listBtn175 = document.getElementsByClassName("normalBtn175");
-var listBtn200 = document.getElementsByClassName("normalBtn200");
-var listText= document.getElementsByClassName("choices-desc-normalCombo");
 
-Array.from(listBtn).forEach(activeBtn);
+// fetch("./data.json")
+//     .then((response)=>response.json())
+//     .then((json) => console.log(json));
 
-function activeBtn (element, index){
-    element.addEventListener("click",function(){
-        for(let i = 0; i < listBtn.length; i++){
-            listBtn[i].classList.remove("activeBtn");
-        }
-        element.classList.add("activeBtn");
-            switch(element.classList[1].slice(-3)){
-                case "150":
-                    listText[0].innerHTML = arrayOfDescripttion150K[index];
-                case "160":
-                    listText[1].innerHTML = arrayOfDescripttion160K[index - listBtn150.length];
-                case "175":
-                    listText[2].innerHTML = arrayOfDescripttion175K[index - listBtn150.length - listBtn160.length];
-                case "200":
-                    listText[3].innerHTML = arrayOfDescripttion200K[index - listBtn150.length - listBtn160.length - listBtn175.length];
-            }  
-    })
+var shoppingList = document.getElementById("shopping-container");
+var comboItem = "";
+
+for (var item of dataShopping) {
+    comboItem += `
+    <div class="combo">
+        <h1 class="combo-tittle">${item.name}</h1> 
+        <div class="content">
+            <div class="content-description">  
+            ${checkContent()}
+            </div> 
+            <div class="normalCombo-shopping">
+                <div class="normal-choices">
+                ${renderChoiceName()}
+                </div>
+                ${renderDescription()}
+                ${renderCostList()}
+                <div class="cartBuy">
+                    <button class="button cartBtn">Thêm vào giỏ hàng</button>
+                    <button class="button cartBtn">Mua ngay</button>
+                </div>
+            </div>               
+        </div>
+    </div>  `;
 }
+
+function checkContent() {
+    var checkCont = ``;
+    if (item.image != "" && item.description != "") {
+        checkCont += `<img src=${item.image} alt="img-here"></img>
+                    <p class="description-para">${item.description}</p>`
+    } else if (item.image != "") {
+        checkCont += `<img src=${item.image} alt="img-here"></img>`
+    } else {
+        checkCont += `<p class="description-para">${item.description}</p>`
+    }
+    return checkCont;
+}
+
+function renderChoiceName(){
+    var choiceNames = "";
+    for (let choice of item.choices) {
+        choiceNames += `<button class="${item.id} button normalBtn150 btn ">${choice.name}</button>`;
+    }
+    return choiceNames;
+}
+
+function renderDescription(){
+    var descript = ``;
+    for(let desc of item.choices){
+        descript += `<p class="choices-desc-normalCombo hidden">${desc.description}</p>`
+    }
+    return descript;
+}
+
+function renderCostList(){
+    var costLists = ``;
+    var costLi = ``
+    for(let pri of item.choices){
+        if(pri.price != []){
+            for(let i = 0; i < pri.price.length; i++){
+                costLi += `<li class="cost-style">${pri.price[i]}</li>`
+            }
+        }        
+        costLists += ` <div class="cost hidden">
+                            <ul class="cost-list">
+                                ${costLi}
+                            </ul>
+                        </div> `;
+        costLi = ``;
+                
+    }
+    return costLists;
+}
+shoppingList.innerHTML = comboItem;
+     
+// // Other combo
+var listBtn = document.getElementsByClassName("btn");
+var listText = document.getElementsByClassName("choices-desc-normalCombo");
+var listCost = document.getElementsByClassName("cost");
+var arrayId = [];
+var countItemArray = [0];
+var indexArray = 0;
+
+console.log(listBtn);
+
+// Đếm những id hiện có
+Array.from(listBtn).forEach((element) => {
+    if(arrayId[indexArray] != element.classList[0]){
+        arrayId[indexArray] = element.classList[0];
+        indexArray++;
+    }
+})
+
+for(let i = 0; i < arrayId.length-1; i++){
+    if(arrayId[i] != arrayId[i + 1]){
+        countItemArray.push(i+1);
+    }
+}
+
+for(let i = 0; i < countItemArray.length; i++){
+    listText[countItemArray[i]].classList.remove("hidden");
+    listCost[countItemArray[i]].classList.remove("hidden");
+}
+
+Array.from(listBtn).forEach((element, index) => {
+    element.addEventListener("click", function () {
+        var inc = 0;
+        for(var i = 0; i < countItemArray.length; i++){
+            if(index <= countItemArray[i]){
+                inc = i - 1;
+                break;
+        }
+    }
+    console.log(inc);
+    console.log(countItemArray[inc])
+        for(let i =  countItemArray[inc] - 1; i < countItemArray[inc + 1]; i++){
+            listText[countItemArray[i]].classList.add("hidden");
+            listCost[countItemArray[i]].classList.add("hidden");
+        }
+   
+        listText[index].classList.remove("hidden");
+        listCost[index].classList.remove("hidden");
+    
+})
+})
