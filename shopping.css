@@ -79,43 +79,6 @@
     font-size: 45px;
 }
 
-.special-shopping{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-}
-
-.special-choices{
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-}
-
-.choicesBtn{
-    opacity: 0.8;
-    width: 200px;
-}
-
-.choices-description{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    font-size: 18px;
-    position: relative;
-    width: 90%;
-    height: 25vh;
-}
-
-.a-choice{
-   position: absolute;
-}
-
-.des{
-    margin-bottom: 20px;
-}
-
 .cost{
     margin-top: 10px;
 }
@@ -131,38 +94,37 @@
     border: 1px solid #785A42;
     border-radius: 10px;
     padding: 5px 15px;
+    margin-right: 10px;
 }
 
-.b-choice{
-    visibility: hidden;
-}
-
-/*Normal combo*/
-.normalCombo-shopping{
+/*Combo*/
+.combo-shopping{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 50%;
 }
 
-.normal-choices{
+.choices{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.normalBtn150, .normalBtn160, .normalBtn175, .normalBtn200{
+.normalBtn{
     width: fit-content;
     margin-top: 5px;
     margin-right: 10px;
-    padding: 10px;
+    padding: 7px;
     height: fit-content;
 }
 
-.choices-desc-normalCombo{
+.choices-desc-combo{
     height: 15vh;
     margin-top: 20px;
     text-align: center;
+    font-size: 16px;
+    font-family: notoFont;
 }
 
 .active{
