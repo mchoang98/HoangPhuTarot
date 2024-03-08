@@ -1,34 +1,4 @@
 import dataShopping from "./dataShopping.json" assert {type: "json"};
-console.log("Hello")
-// Combo special
-// var aChoice = document.getElementById("a-choice");
-// var bChoice = document.getElementById("b-choice");
-
-// var costList = document.getElementsByClassName("cost-style");
-
-// aChoice.addEventListener("click", function () {
-//     document.getElementsByClassName("a-choice")[0].style.visibility = "visible";
-//     document.getElementsByClassName("b-choice")[0].style.visibility = "hidden";
-
-// });
-
-// bChoice.addEventListener("click", function () {
-//     document.getElementsByClassName("a-choice")[0].style.visibility = "hidden";
-//     document.getElementsByClassName("b-choice")[0].style.visibility = "visible";
-
-// });
-
-// Array.from(costList).forEach((element, index) => {
-//     element.addEventListener("click", function () {
-//         for (let i = 0; i < costList.length; i++) {
-//             costList[i].classList.remove("active");
-//         }
-//         element.classList.add("active");
-//     })
-// });
-
-
-
 
 // fetch("./data.json")
 //     .then((response)=>response.json())
@@ -45,8 +15,8 @@ for (var item of dataShopping) {
             <div class="content-description">  
             ${checkContent()}
             </div> 
-            <div class="normalCombo-shopping">
-                <div class="normal-choices">
+            <div class="combo-shopping">
+                <div class="choices">
                 ${renderChoiceName()}
                 </div>
                 ${renderDescription()}
@@ -76,7 +46,7 @@ function checkContent() {
 function renderChoiceName(){
     var choiceNames = "";
     for (let choice of item.choices) {
-        choiceNames += `<button class="${item.id} button normalBtn150 btn ">${choice.name}</button>`;
+        choiceNames += `<button class="${item.id} button normalBtn btn ">${choice.name}</button>`;
     }
     return choiceNames;
 }
@@ -84,7 +54,7 @@ function renderChoiceName(){
 function renderDescription(){
     var descript = ``;
     for(let desc of item.choices){
-        descript += `<p class="choices-desc-normalCombo hidden">${desc.description}</p>`
+        descript += `<p class="choices-desc-combo hidden">${desc.description}</p>`
     }
     return descript;
 }
@@ -112,20 +82,14 @@ shoppingList.innerHTML = comboItem;
      
 // // Other combo
 var listBtn = document.getElementsByClassName("btn");
-var listText = document.getElementsByClassName("choices-desc-normalCombo");
+var listText = document.getElementsByClassName("choices-desc-combo");
 var listCost = document.getElementsByClassName("cost");
 var arrayId = [];
 var countItemArray = [0];
-var indexArray = 0;
-
-console.log(listBtn);
 
 // Đếm những id hiện có
-Array.from(listBtn).forEach((element) => {
-    if(arrayId[indexArray] != element.classList[0]){
-        arrayId[indexArray] = element.classList[0];
-        indexArray++;
-    }
+Array.from(listBtn).forEach((element, index) => {
+        arrayId[index] = element.classList[0];
 })
 
 for(let i = 0; i < arrayId.length-1; i++){
@@ -135,28 +99,34 @@ for(let i = 0; i < arrayId.length-1; i++){
 }
 
 for(let i = 0; i < countItemArray.length; i++){
-    listText[countItemArray[i]].classList.remove("hidden");
-    listCost[countItemArray[i]].classList.remove("hidden");
+    listBtn[countItemArray[i]].classList.add("activeBtn")
+    listText[countItemArray[i]].classList.remove("hidden")
+    listCost[countItemArray[i]].classList.remove("hidden")
 }
 
 Array.from(listBtn).forEach((element, index) => {
     element.addEventListener("click", function () {
-        var inc = 0;
-        for(var i = 0; i < countItemArray.length; i++){
-            if(index <= countItemArray[i]){
-                inc = i - 1;
-                break;
+    console.log(element.classList[0])
+    for(let i = 0; i < listBtn.length; i++){
+        if(listBtn[i].classList[0] == element.classList[0]){
+            listBtn[i].classList.remove("activeBtn")
+            listText[i].classList.add("hidden")
+            listCost[i].classList.add("hidden")
         }
     }
-    console.log(inc);
-    console.log(countItemArray[inc])
-        for(let i =  countItemArray[inc] - 1; i < countItemArray[inc + 1]; i++){
-            listText[countItemArray[i]].classList.add("hidden");
-            listCost[countItemArray[i]].classList.add("hidden");
-        }
-   
-        listText[index].classList.remove("hidden");
-        listCost[index].classList.remove("hidden");
-    
+    element.classList.add("activeBtn")
+    listText[index].classList.remove("hidden")
+    listCost[index].classList.remove("hidden")
 })
+})
+
+var listCostStyle = document.getElementsByClassName("cost-style");
+
+Array.from(listCostStyle).forEach((element,index)=>{
+    element.addEventListener("click", ()=>{
+        for(let i = 0; i < listCostStyle.length ; i++){
+            listCostStyle[i].classList.remove("active")
+        }
+        element.classList.add("active")
+    })
 })
